@@ -1,0 +1,122 @@
+/* Separador superior del footer */
+.footer-divider {
+  height: 30px;
+  background-color: #FFFF;
+}
+
+/* Estilos del footer */
+.footer {
+  background-color: #3B6CD1;
+  color: #ffffff;
+  padding: 50px 20px;
+  font-family: 'Aspira';
+}
+
+.footer-contenedor {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 20px;
+}
+
+.footer-col {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-logo {
+  width: 50px;
+}
+
+.footer-descripcion {
+  font-size: 17px;
+  color: #FFF;
+  line-height: 1.5;
+}
+
+.footer-redes {
+  position: relative;
+  top: -110px;
+  width: 350px;
+}
+
+.footer-imagen-extra {
+  position: relative;
+  top:-300px;
+  width: 400px;
+}
+
+.footer-titulo {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+  .footer-subtitulo {
+  font-size: 18px;
+  font-weight: lighter;
+  margin-bottom: 10px;
+  color: #fff;
+
+  }
+
+.footer-links li {
+  list-style: none;
+  margin-bottom: 35px;
+
+}
+
+.footer-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: lighter;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #F7D899;
+}
+
+.footer-info li {
+  list-style: none;
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 35px;
+}
+
+.footer-tarjetas {
+  width: 300px;
+  position: relative;
+  top:-100px;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .footer-contenedor {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap:10px;
+    padding: 10px;
+  }
+
+  .footer-col {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .footer-redes,
+  .footer-imagen-extra,
+  .footer-tarjetas {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}

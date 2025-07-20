@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navbar Responsive Mejorada</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Montserrat; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #276CCD;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .left-group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+    }
+
+    .logo img { height: 40px; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .hamburger .bar {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+    }
+
+    .search-box {
+      position: relative;
+      max-width: 300px;
+      flex: 1;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 8px 35px 8px 12px;
+      border-radius: 20px;
+      border: none;
+    }
+    .search-box .fa-search {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+      pointer-events: none;
+    }
+
+    nav {
+      display: flex;
+      margin-left: 40px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav li {
+      position: relative;
+      padding-right: 20px;
+    }
+    nav li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 20px;
+      background-color: #FFF;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #F7D899;
+      background-color: transparent;
+    }
+
+    .right-button {
+      margin-left: 20px;
+    }
+    .right-button button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 13px;
+      background-color: #FF9B55;
+      color: #0F357E;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 5px 3px rgba(0,0,0,0.2);
+    }
+    .right-button button:hover {
+      background-color: #F8B365;
+    }
+
+    @media (max-width: 768px) {
+      
+
+      .hamburger { display: flex; }
+
+      nav {
+        position: absolute;
+        top: 60px;
+        left: 10px; 
+        background: #333;
+        display: none;
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      nav.open { display: flex; }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+      }
+      nav li {
+        padding-right: 0;
+      }
+      nav li:not(:last-child)::after { display: none; }
+
+      .right-button { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="left-group">
+    <div class="logo">
+      <a href="#"><img src="Logos/Logo1.png" alt="Logo"/></a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Buscar..."/>
+      <i class="fa fa-search"></i>
+    </div>
+  </div>
+
+  <nav id="navMenu">
+    <ul>
+      <li><a href="#op1">¿Quiénes somos?</a></li>
+      <li><a href="#op2">Refugios</a></li>
+      <li><a href="#op3">Adopciones</a></li>
+    </ul>
+  </nav>
+
+  <div class="right-button">
+    <button>Reportar Maltrato</button>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('navMenu');
+  hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+</script>
+</body>
+</html>
+
+<main style="display: flex; justify-content: space-between; align-items: center; padding: 45px; flex-wrap: wrap;">
+
+  <div style="flex: 1; min-width: 150px; text-align: center;">
+    <img src="Logos/Logo2.png" alt="Imagen izquierda" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+
+  <!-- Texto central -->
+  <div style="flex: 2; min-width: 300px; padding: 0 30px; text-align: center;">
+    <h1 style="font-size: 80px; color: #5D3A00; margin-bottom: 0.5px; font-family: Aspira;line-height: normal; padding: 10px;"> <strong>¡DAME UNA PATA!</strong> </h1>
+    <h3 style="font-size: 65px; color: #948F4E; margin-bottom: 20px; font-family: Aspira; line-height: 100%; font-weight: 450;"> Ayuda a un peludito</h3>
+    <p style="text-align: justify; color: #5D3A00; font-size: 25px; line-height: 1.9;">
+      Es una plataforma dedicada al rescate y protección de perros y gatos en situación de abandono o maltrato.  Además, funcionamos como un directorio solidario que conecta con otros refugios en la <strong> Ciudad de México y área metropolitana</strong>, ampliando la red de ayuda y dando más oportunidades a quienes más lo necesitan.
+    </p>
+  </div>
+
+ 
+  <div style="flex: 1; min-width: 150px; text-align: center;">
+    <img src="Logos/Imagen1.png" alt="Imagen derecha" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+</main>
+
+<div class="contenedor-botones">
+  <button class="boton-icono">
+    <img src="Logos/Icono1.png" alt="Icono Blog">
+    BLOG DE CUIDADOS 
+  </button>
+  <button class="boton-icono">
+    <img src="Logos/Icono2.png" alt="Icono Voluntario">
+   VOLUNTARIADO 
+  </button>
+  <button class="boton-icono">
+    <img src="Logos/Icono3.png" alt="Icono Donaciones">
+     DONACIONES 
+  </button>
+</div>
+
+
+<style>
+  .contenedor-botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 30px 20px;
+  }
+
+  .boton-icono {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    font-size: 25px;
+    font-family:  Montserrat;
+    background-color: #FFDEB4;
+    color: #C2AE80;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid #63481D;
+    box-shadow: 0 7px 8px rgba(0,0,0,0.3);
+    font-weight: 500;
+  }
+
+  .boton-icono:hover {
+    background-color: #FBE9C3;
+  }
+
+  .boton-icono img {
+    width: 48px;
+    height: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .boton-icono {
+      font-size: 18px;
+      padding: 12px 24px;
+    }
+
+    .boton-icono img {
+      width: 68px;
+      height: 68px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contenedor-botones {
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .boton-icono {
+      width: 50%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<section class="carrusel-seccion">
+  <div class="linea-naranja">
+    <h2>HISTORIAS CON FINALES FELICES</h2>
+  </div>
+
+  <div class="carrusel-grande" id="carrusel">
+    <div class="slide active">
+      <img src="Logos/Aquiles1.png" alt="Historia 1">
+      <div class="letrero visible">
+        <img src="Logos/Letrero1.png" alt="Letrero 1">
+      </div>
+    </div>
+    <div class="slide">
+      <img src="Logos/Charly.png" alt="Historia 2">
+      <div class="letrero">
+        <img src="Logos/Letrero2.png" alt="Letrero 2">
+      </div>
+    </div>
+    <div class="slide">
+      <img src="Logos/Pinga1.png" alt="Historia 3">
+      <div class="letrero">
+        <img src="Logos/Letrero3.png" alt="Letrero 3">
+      </div>
+    </div>
+  </div>
+
+  <div class="indicadores" id="dots">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+  </div>
+</section>
+
+<style>
+  .carrusel-seccion {
+    background-color: #EDE9E2;
+    background-image: url('Logos/Textura1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0.1px 0;
+    overflow: hidden;
+    height: 840px ;
+
+  }
+
+  .linea-naranja {
+    border-bottom: 90px solid #E07E00;
+    width: 100%;
+    margin: 0 auto 30px;
+    padding-top: 0.2px;
+    text-align: center;
+    
+  }
+
+  .linea-naranja h2 {
+    font-family: Montserrat, Aspira;
+    font-size: 45px;
+    color: #FFFFFF;
+    margin: 0;
+    top: 70px;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 7px 3px rgba(0,0,0,0.4);
+
+
+  }
+
+.carrusel-grande {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 900px; 
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0.85);
+  opacity: 0.3;
+  transition: all 0.8s ease;
+  width: 35%;
+  z-index: 1;
+}
+
+.slide.left {
+  transform: translateX(-150%) scale(0.8);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.slide.right {
+  transform: translateX(50%) scale(0.8);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.slide.active {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  z-index: 2;
+}
+
+  .slide img {
+    width: 100%;
+    height: auto;
+    display: center;
+    margin: 0;
+  }
+
+ .letrero {
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease, bottom 0.5s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.slide.active .letrero {
+  opacity: 1;
+  bottom: -60px; 
+}
+
+  .letrero img {
+    width: 200px;
+  }
+
+  .indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
+    background-color: #4C4A45;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-top: -304px;
+  }
+
+  .dot.active {
+    transform: scale(1.6);
+    background-color: #4C4A45;
+  }
+
+  @media (max-width: 768px) {
+    .linea-naranja h2 {
+      font-size: 32px;
+    }
+
+    .letrero img {
+      width: 130px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .linea-naranja h2 {
+      font-size: 26px;
+    }
+
+    .letrero img {
+      width: 100px;
+    }
+
+    @media (max-width: 300px) {
+      .carrusel-seccion {
+        padding: 15px;
+
+      }
+    }
+  }
+</style>
+
+<script>
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    slides.forEach((slide, index) => {
+      slide.classList.remove("active", "left", "right");
+      dots[index].classList.remove("active");
+
+      if (index === currentIndex) {
+        slide.classList.add("active");
+        dots[index].classList.add("active");
+      } else if (index === (currentIndex - 1 + slides.length) % slides.length) {
+        slide.classList.add("left");
+      } else if (index === (currentIndex + 1) % slides.length) {
+        slide.classList.add("right");
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }
+
+  setInterval(nextSlide, 4000);
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      currentIndex = parseInt(dot.getAttribute("data-index"));
+      updateCarousel();
+    });
+  });
+
+  updateCarousel();
+</script>
+
+<!-- Separador -->
+<div class="footer-divider"></div>
+<link rel="stylesheet" href="10_index.css">
+
+<!-- Pie de Página -->
+<footer class="footer">
+  <div class="footer-contenedor">
+
+    <!-- Columna 1 -->
+    <div class="footer-col">
+      <img src="Logos2/Logo_pie.png" alt="Logo" class="footer-logo">
+      <h1 class="footer-titulo">
+        DAME UNA PATA 
+      </h1>
+      <h2 class="footer-subtitulo">
+       REFUGIO  
+      </h2>
+      <p class="footer-descripcion">
+        Refgio de perros y gatos, encargados de 
+        poder ayudar a cualquier peludito que 
+        necesite ayuda, y pueda encontrar un 
+        hogar, en la CDMX  y area metropolitana. 
+      </p>
+      <img src="Logos2/Redes_pie.png" alt="Redes Sociales" class="footer-redes">
+      <img src="Logos2/Imagen_pie.png" alt="Imagen Inferior" class="footer-imagen-extra">
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CONOCENOS</h4>
+      <ul class="footer-links">
+        <li><a href="#">¿Quiénes somos? </a></li>
+        <li><a href="#">Adopciones</a></li>
+        <li><a href="#">Donaciones</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CENTRO DE AYUDA</h4>
+      <ul class="footer-links">
+        <li><a href="#">Reporta un matrato</a></li>
+        <li><a href="#">Refugios</a></li>
+        <li><a href="#">Blogs</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CONTACTO</h4>
+      <ul class="footer-info">
+        <li> Informes </li>
+        <li>@dameunapata.com.mx</li>
+        <li>+52 55 34540922</li>
+        <li>CDMX, México,Av. Morelos 45</li>
+        <li>Lun-Vie 9am - 6pm</li>
+      </ul>
+      <img src="Logos2/Tarjetas_pie.png" alt="Pagos" class="footer-tarjetas">
+    </div>
+
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
