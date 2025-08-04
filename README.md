@@ -1,2 +1,10 @@
 # Paginaweb_refugio
-Desarrollo de una pagina web para el refugio de perros y gatos dentro de la Ciudad de México y área metropolitana.
+
+Este proyecto fue desarrollado como parte del diplomado en Desarrollo de páginas responsivas e interactivas. Desarrollador Web Senior y dispositivo móvil profesional
+
+
+## Autor
+
+- **Daniela L. Cruz**
+- GitHub: [DanielaC-5](https://github.com/DanielaC-5)
+- Fecha de creación: Junio 2025
