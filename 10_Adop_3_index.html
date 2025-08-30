@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Adopciones</title>
+  <link rel="stylesheet" href="10_index.css"> <!-- CSS archivo externo -->
+</head>
+<body>
+
+<!-- Header y logo -->
+  <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Montserrat, sans‑serif; position: relative; min-height: 100vh; display: flex; flex-direction: column; }
+
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #276CCD;
+      padding: 10px 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .left-group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+    }
+
+    .logo img { height: 40px; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .hamburger .bar {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+    }
+
+    .search-box {
+      position: relative;
+      max-width: 300px;
+      flex: 1;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 8px 35px 8px 12px;
+      border-radius: 20px;
+      border: none;
+    }
+    .search-box .fa-search {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+      pointer-events: none;
+    }
+
+    nav {
+      display: flex;
+      margin-left: 40px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav li {
+      position: relative;
+      padding-right: 20px;
+    }
+    nav li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 20px;
+      background-color: #FFF;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #F7D899;
+      background-color: transparent;
+    }
+      nav a.activo {
+      color: #F7D899;
+      background-color: transparent;
+      }
+  
+
+    .right-button {
+      margin-left: 20px;
+    }
+    .right-button button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 13px;
+      background-color: #FF9B55;
+      color: #0F357E;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 5px 3px rgba(0,0,0,0.2);
+    }
+    .right-button button:hover {
+      background-color: #F8B365;
+    }
+   
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="left-group">
+    <div class="logo">
+      <a href="10_index.html"><img src="Logos/Logo1.png" alt="Logo"/></a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Buscar..."/>
+      <i class="fa fa-search"></i>
+    </div>
+  </div>
+
+  <nav id="navMenu">
+    <ul>
+       <li><a href="10_Quienessomos_index.html" class="nav-link" id="nav-quienes">¿Quiénes somos?</a></li>
+      <li><a href="10_Refugios_index.html"class="nav-link" id="nav-refugios" >Refugios</a></li>
+      <li><a href="10_Adopciones_index.html" class="nav-link" id="nav-adopciones">Adopciones</a></li>
+    </ul>
+  </nav>
+
+  <div class="right-button">
+    <button>Reportar Maltrato</button>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  // Obtener el nombre del archivo actual
+  const path = window.location.pathname;
+  const currentPage = path.substring(path.lastIndexOf('/') + 1);
+
+  // Mapeo entre archivo y ID del botón del menú
+  const navMenu = {
+    '10_Quienessomos_index.html':'nav-quienes',
+    '10_Refugios_index.html': 'nav-refugios',
+    '10_Adopciones_index.html': 'nav-adopciones'
+  };
+
+  const idActivo = navMenu[currentPage];
+
+  if (idActivo) {
+    const boton = document.getElementById(idActivo);
+    if (boton) {
+      boton.classList.add('activo');
+  
+    }
+  }
+</script>
+</body>
+</html>
+
+
+<main>
+  <!-- Hero -->
+    <div class="hero">
+      <img src="Img_Adopciones/Img_1_Adop.jpg" alt="Imagen principal">
+      <div class="hero-title">¡ADÓPTAME!</div>
+    </div>
+<!-- Datos de Adopcion -->
+    <div class="adopcion-detalle">
+  <div class="adopcion-img">
+    <img src="Img_Adop_Pag/Nipie_pag.png" alt="Mascota en adopción">
+  </div>
+
+  <div class="adopcion-info">
+    <h2>Nombre: <span class= "Nombre-adop"> Nipie </span></h2> 
+    <h3>Sexo: <span class= "Sexo-adop"> Hembra </span></h3>
+    <h4>Edad:<span class= "Edad-adop"> 5 años </span></h4>
+    <h5>Tamaño: <span class= "Tama-adop"> Mediano </span></h5>
+
+    <h6>Características:</h6>
+    <p class="descripcion">
+     Perrita de tamaño mediano, muy amigable, cariñosa y bien educada. Le encanta jugar con niños y adultos, y se lleva muy bien con otros perros y animales. Ideal para familias activas que buscan una compañera sociable y afectuosa.
+    </p>
+
+    <div class="leyenda-boton">
+      <span class="leyenda">Todos los perritos y gatitos disponibles para adopción están desparasitados, esterilizados y cuentan con su cartilla de vacunación al día.</span>
+      <button class="formulario-btn">Formulario</button>
+    </div>
+  </div>
+</div>
+      
+    </div>
+</main>
+
+<style>
+
+         main {
+      flex: 1;
+    }
+   .hero {
+  position: relative;
+  margin-top: 0;
+  margin-top: -200px; 
+  z-index: 1; 
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+.hero-title {
+  position: absolute;
+  top: 520px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #513B21;
+  font-size: 5rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 0 2px;
+  z-index: 1; 
+}
+    
+/* Info Adopcion */
+
+.adopcion-detalle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 50px 30px;
+  align-items: flex-start;
+}
+
+.adopcion-img img {
+  width: 500%;
+  max-width: 750px;
+  margin-left: -100px;
+  
+}
+
+.adopcion-info {
+  flex: 1;
+  max-width: 500px;
+  margin-left: -80px;
+
+}
+
+.adopcion-info h2,h3,h4,h5,h6 {
+  font-family: Aspira;
+  color: #D1AD5B;
+  margin-bottom: 12px;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.Nombre-adop {
+  font-family: Aspira;
+  color: #503B21;
+  margin-right: 30%;
+  font-size: 2.5rem;
+  font-weight: 650;
+  
+}
+
+.Sexo-adop {
+  font-family: Aspira;
+  color: #503B21;
+  margin-right: 30%;
+  font-size: 2.5rem;
+  font-weight: 350;
+  
+}
+
+
+.Edad-adop {
+  font-family: Aspira;
+  color: #503B21;
+  margin-right: 30%;
+  font-size: 2.5rem;
+  font-weight: 350;
+  
+}
+
+
+.Tama-adop {
+  font-family: Aspira;
+  color: #503B21;
+  margin-right: 10%;
+  font-size: 2.5rem;
+  font-weight: 350;
+  
+}
+
+.adopcion-info p {
+  color: #503B21;
+  margin-bottom: 10px;
+  font-size: 2.1rem;
+}
+
+
+.descripcion {
+  font-family: Montserrat;
+  margin-top: -19px;
+  text-align: justify;
+  line-height: 1.6;
+  width: 600px; 
+}
+
+.leyenda-boton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  gap: 10px;
+  text-align: center;
+}
+
+.leyenda {
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  color: #9C570D;
+  font-weight: 100; 
+  width: 750px; 
+  margin: 0 auto; 
+  text-align: center; 
+  margin-left: -720px;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.formulario-btn {
+  padding: 10px 18px;
+  background-color: #DA830F;
+  font-family: Montserrat;
+  font-size: 2.3rem;
+  color: #FFFFFF;
+  border: 3px solid #FFFFFF; 
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: -4px 4px 2px rgba(0, 0, 0, 0.25); 
+  transition: background-color 0.3s;
+  margin-top: -100px;
+}
+
+.formulario-btn:hover {
+  background-color: #F8B365;
+}
+
+.formulario-btn:hover {
+  background-color: #F8B365;
+}
+
+
+    /* Imagen Background*/
+   .fondo-inferior {
+  position: absolute;
+  bottom: 1100px; 
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1; 
+  opacity: 1;
+  pointer-events: none; 
+}
+    @media (max-width: 768px) {
+      
+
+      .hamburger { display: flex; }
+
+      nav {
+        position: absolute;
+        top: 60px;
+        left: 10px; 
+        background: #333;
+        display: none;
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      nav.open { display: flex; }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+      }
+      nav li {
+        padding-right: 0;
+      }
+      nav li:not(:last-child)::after { display: none; }
+
+      .right-button { display: none; }
+
+      /* CODIGO PARA VERSION RESPONSIVA */
+
+    @media (max-width: 1024px) {
+  /* Tablets */
+  .hero-title {
+    top: 400px;
+    font-size: 4rem;
+  }
+@media (max-width: 768px) {
+  /* Contenedor HERO */
+  .hero {
+    position: relative;
+    width: 250%;
+    overflow: hidden;
+    margin-left: -50px;
+    margin-top: -175px; 
+    padding: 0 10px; 
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Imagen principal centrada y adaptada */
+  .hero img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-top: 120px;
+    
+  }
+
+  /* Titulo abajo y centrado */
+  .hero-title {
+    position: absolute;
+    top: 92%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    font-size: 2.0rem;
+    padding: 0 10px;
+    color: #513B21;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+    overflow: hidden;
+  }
+}
+
+  /* Imagen de fondo más arriba */
+  .fondo-inferior {
+    position: absolute;
+    bottom: 65%; 
+    left: 0;
+    width: 350%;
+    height: auto;
+    z-index: 0;
+    opacity: 1;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .adopcion-detalle {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+    gap: 20px;
+  }
+
+  .adopcion-img img {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .adopcion-info {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    padding: 0 10px;
+  }
+
+  .adopcion-info h2,
+  .adopcion-info h3,
+  .adopcion-info h4,
+  .adopcion-info h5,
+  .adopcion-info h6 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .Nombre-adop,
+  .Sexo-adop,
+  .Edad-adop,
+  .Tama-adop {
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+
+  .descripcion {
+    width: 100%;
+    font-size: 1.8rem;
+    margin-top: 0;
+    text-align: justify;
+  }
+
+  .leyenda-boton {
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .leyenda {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-left: 0;
+    font-size: 1.0rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .formulario-btn {
+    font-size: 2rem;
+    padding: 10px 16px;
+    margin-top: 0;
+  }
+}
+
+
+
+</style>
+
+<!-- Footer -->
+
+<footer class="footer">
+  <div class="footer-contenedor">
+
+    <!-- Columna 1 -->
+    <div class="footer-col">
+      <img src="Logos2/Logo_pie.png" alt="Logo" class="footer-logo">
+      <h1 class="footer-titulo">
+        DAME UNA PATA 
+      </h1>
+      <h2 class="footer-subtitulo">
+       REFUGIO  
+      </h2>
+      <p class="footer-descripcion">
+        Refgio de perros y gatos, encargados de 
+        poder ayudar a cualquier peludito que 
+        necesite ayuda, y pueda encontrar un 
+        hogar, en la CDMX  y area metropolitana. 
+      </p>
+      <img src="Logos2/Redes_pie.png" alt="Redes Sociales" class="footer-redes">
+      <img src="Logos2/Imagen_pie.png" alt="Imagen Inferior" class="footer-imagen-extra">
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CONOCENOS</h4>
+      <ul class="footer-links">
+        <li><a href="10_Quienessomos_index.html">¿Quiénes somos? </a></li>
+        <li><a href="10_Adopciones_index.html">Adopciones</a></li>
+        <li><a href="#">Donaciones</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CENTRO DE AYUDA</h4>
+      <ul class="footer-links">
+        <li><a href="#">Reporta un matrato</a></li>
+        <li><a href="10_Refugios_index.html">Refugios</a></li>
+        <li><a href="#">Blogs</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CONTACTO</h4>
+      <ul class="footer-info">
+        <li> Informes </li>
+        <li>@dameunapata.com.mx</li>
+        <li>+52 55 34540922</li>
+        <li>CDMX, México,Av. Morelos 45</li>
+        <li>Lun-Vie 9am - 6pm</li>
+      </ul>
+      <img src="Logos2/Tarjetas_pie.png" alt="Pagos" class="footer-tarjetas">
+    </div>
+
+
+  </div>
+</footer>
+
+  <img src="Img_Adopciones/background_1.png" alt="Fondo inferior decorativo" class="fondo-inferior">
+
+
+
+</body>
+</html>

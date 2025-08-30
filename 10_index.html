@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Navbar Responsive Mejorada</title>
@@ -146,7 +147,7 @@
 <header>
   <div class="left-group">
     <div class="logo">
-      <a href="#"><img src="Logos/Logo1.png" alt="Logo"/></a>
+      <a href="10_index.html"><img src="Logos/Logo1.png" alt="Logo"/></a>
     </div>
     <div class="hamburger" id="hamburger">
       <span class="bar"></span>
@@ -161,12 +162,34 @@
 
   <nav id="navMenu">
     <ul>
-      <li><a href="#op1">¿Quiénes somos?</a></li>
-      <li><a href="#op2">Refugios</a></li>
-      <li><a href="#op3">Adopciones</a></li>
+      <li><a href="10_Quienessomos_index.html" class="nav-link" id="nav-quienes">¿Quiénes somos?</a></li>
+      <li><a href="10_Refugios_index.html"class="nav-link" id="nav-refugios" >Refugios</a></li>
+      <li><a href="10_Adopciones_index.html" class="nav-link" id="nav-adopciones">Adopciones</a></li>
     </ul>
   </nav>
+<style>
+     .nav-link {
+    text-decoration: none;
+    font-family: Montserrat;
+    color: #FFFF;
+    padding: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: lighter;
+}
 
+  .nav-link:hover, 
+  .nav-link.activo {
+    font-family: Montserrat;
+    background-color: transparent;
+    color: #F7D899; 
+
+  nav a.activo {
+  color: #F7D899;
+  background-color: transparent;
+}
+  
+}
+</style>
   <div class="right-button">
     <button>Reportar Maltrato</button>
   </div>
@@ -175,7 +198,30 @@
 <script>
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('navMenu');
-  hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  // Obtener el nombre del archivo actual
+  const path = window.location.pathname;
+  const currentPage = path.substring(path.lastIndexOf('/') + 1);
+
+  // Mapeo entre archivo y ID del botón del menú
+  const navMenu = {
+    '10_Quienessomos_index.html':'nav-quienes',
+    '10_Refugios_index.html': 'nav-refugios',
+    '10_Adopciones_index.html': 'nav-adopciones'
+  };
+
+  const idActivo = navMenu[currentPage];
+
+  if (idActivo) {
+    const boton = document.getElementById (idActivo);
+    if (boton) {
+      boton.classList.add('activo');
+    }
+  }
 </script>
 </body>
 </html>
@@ -235,7 +281,7 @@
     font-size: 25px;
     font-family:  Montserrat;
     background-color: #FFDEB4;
-    color: #C2AE80;
+    color: #805D3B;
     border: none;
     border-radius: 25px;
     cursor: pointer;
@@ -276,12 +322,16 @@
       width: 50%;
       justify-content: center;
     }
+
+
   }
 </style>
 
 <section class="carrusel-seccion">
   <div class="linea-naranja">
-    <h2>HISTORIAS CON FINALES FELICES</h2>
+    <div class="titulo-uno">
+    <h2> HISTORIAS CON FINALES FELICES </h2>
+  </div>
   </div>
 
   <div class="carrusel-grande" id="carrusel">
@@ -324,27 +374,28 @@
 
   }
 
-  .linea-naranja {
-    border-bottom: 90px solid #E07E00;
-    width: 100%;
-    margin: 0 auto 30px;
-    padding-top: 0.2px;
-    text-align: center;
-    
-  }
+.linea-naranja {
+  border-bottom: 90px solid #E07E00;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
 
-  .linea-naranja h2 {
-    font-family: Montserrat, Aspira;
-    font-size: 45px;
-    color: #FFFFFF;
-    margin: 0;
-    top: 70px;
-    position: relative;
-    text-align: center;
-    text-shadow: 0 7px 3px rgba(0,0,0,0.4);
+.titulo-uno h2 {
+  font-family: Aspira;
+  font-weight: 900;
+  font-size: 45px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  margin: 0;
+  text-shadow: 0 7px 1px rgba(0, 0, 0, 0.5);
+  margin-top: 0.38em;
+}
 
-
-  }
 
 .carrusel-grande {
   position: relative;
@@ -387,15 +438,16 @@
 }
 
   .slide img {
-    width: 100%;
+    width: 115%;
     height: auto;
     display: center;
     margin: 0;
+    margin-left: -35px;
   }
 
  .letrero {
   position: absolute;
-  left: 50%;
+  left: 57%;
   bottom: -50px;
   transform: translateX(-50%);
   opacity: 0;
@@ -410,14 +462,14 @@
 }
 
   .letrero img {
-    width: 200px;
+    width: 300px;
   }
 
   .indicadores {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 30px;
+    margin-top: 60px;
   }
 
   .dot {
@@ -427,7 +479,7 @@
     border-radius: 50%;
     transition: transform 0.3s ease;
     cursor: pointer;
-    margin-top: -304px;
+    margin-top: -250px;
   }
 
   .dot.active {
@@ -436,31 +488,150 @@
   }
 
   @media (max-width: 768px) {
-    .linea-naranja h2 {
+    .linea-naranja {
       font-size: 32px;
     }
 
-    .letrero img {
-      width: 130px;
-    }
-  }
-
   @media (max-width: 480px) {
-    .linea-naranja h2 {
+    .linea-naranja {
       font-size: 26px;
     }
-
-    .letrero img {
-      width: 100px;
-    }
-
-    @media (max-width: 300px) {
-      .carrusel-seccion {
-        padding: 15px;
-
-      }
-    }
   }
+
+  /* Tablets */
+@media (max-width: 1024px) {
+  .titulo-uno h2 {
+    font-size: 36px;
+    margin-top: 0.38em;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  .titulo-uno h2 {
+    font-size: 30px;
+    margin-top: 0.38em;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .titulo-uno h2 {
+    font-size: 24px;
+    margin-top: 0.38em;
+  }
+}
+
+/* Tablets (hasta 1024px) */
+@media (max-width: 1024px) {
+  .slide {
+    width: 60%; /* antes 50% */
+  }
+
+  .slide img {
+    width: 110%; /* más grande */
+    margin-left: 0;
+  }
+
+  .letrero {
+    left: 50%;
+    bottom: -40px;
+  }
+
+  .letrero img {
+    width: 220px;
+  }
+
+  .dot {
+    margin-top: -220px; /* subido */
+  }
+
+  .carrusel-grande {
+    min-height: 700px;
+  }
+}
+
+/* Celulares grandes (hasta 768px) */
+@media (max-width: 768px) {
+  .slide {
+    width: 80%; /* antes 70% */
+  }
+
+  .slide img {
+    width: 110%; /* más grande */
+    margin-left: 0;
+  }
+
+  .letrero {
+    left: 65%;
+    bottom: -30px;
+  }
+
+  .letrero img {
+    width: 180px;
+  }
+
+  .dot {
+    margin-top: -160px; /* subido */
+  }
+
+  .carrusel-grande {
+    min-height: 600px;
+  }
+}
+
+/* Celulares pequeños (hasta 480px) */
+@media (max-width: 480px) {
+  .slide {
+    width: 95%; /* antes 90% */
+  }
+
+  .slide img {
+    width: 110%; /* más grande */
+    margin-left: 0;
+  }
+
+  .letrero {
+    left: 50%;
+    bottom: -25px;
+  }
+
+  .letrero img {
+    width: 150px;
+  }
+
+  .dot {
+    margin-top: -130px; /* subido */
+  }
+
+  .carrusel-grande {
+    min-height: 500px;
+  }
+}
+
+
+/* === BACKGROUND RESPONSIVO === */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .carrusel-seccion {
+    height: 700px;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  .carrusel-seccion {
+    height: 620px;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .carrusel-seccion {
+    height: 550px;
+  }
+}
 </style>
 
 <script>
@@ -532,8 +703,8 @@
     <div class="footer-col">
       <h4 class="footer-titulo">CONOCENOS</h4>
       <ul class="footer-links">
-        <li><a href="#">¿Quiénes somos? </a></li>
-        <li><a href="#">Adopciones</a></li>
+        <li><a href="10_Quienessomos_index.html">¿Quiénes somos? </a></li>
+        <li><a href="10_Adopciones_index.html">Adopciones</a></li>
         <li><a href="#">Donaciones</a></li>
       </ul>
     </div>
@@ -543,7 +714,7 @@
       <h4 class="footer-titulo">CENTRO DE AYUDA</h4>
       <ul class="footer-links">
         <li><a href="#">Reporta un matrato</a></li>
-        <li><a href="#">Refugios</a></li>
+        <li><a href="10_Refugios_index.html">Refugios</a></li>
         <li><a href="#">Blogs</a></li>
       </ul>
     </div>

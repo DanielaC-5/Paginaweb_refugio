@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Refugios</title>
+  <link rel="stylesheet" href="10_index.css"> <!-- CSS archivo externo-->
+</head>
+<body>
+
+<!-- HEADER Y LOGO MENU -->
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navbar Responsive Mejorada</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Montserrat; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #276CCD;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .left-group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+    }
+
+    .logo img { height: 40px; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .hamburger .bar {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+    }
+
+    .search-box {
+      position: relative;
+      max-width: 300px;
+      flex: 1;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 8px 35px 8px 12px;
+      border-radius: 20px;
+      border: none;
+    }
+    .search-box .fa-search {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+      pointer-events: none;
+    }
+
+    nav {
+      display: flex;
+      margin-left: 40px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav li {
+      position: relative;
+      padding-right: 20px;
+    }
+    nav li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 20px;
+      background-color: #FFF;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #F7D899;
+      background-color: transparent;
+    }
+      nav a.activo {
+      color: #F7D899;
+      background-color: transparent;
+      }
+  
+
+    .right-button {
+      margin-left: 20px;
+    }
+    .right-button button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 13px;
+      background-color: #FF9B55;
+      color: #0F357E;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 5px 3px rgba(0,0,0,0.2);
+    }
+    .right-button button:hover {
+      background-color: #F8B365;
+    }
+
+    @media (max-width: 768px) {
+      
+
+      .hamburger { display: flex; }
+
+      nav {
+        position: absolute;
+        top: 60px;
+        left: 10px; 
+        background: #333;
+        display: none;
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      nav.open { display: flex; }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+      }
+      nav li {
+        padding-right: 0;
+      }
+      nav li:not(:last-child)::after { display: none; }
+
+      .right-button { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="left-group">
+    <div class="logo">
+      <a href="10_index.html"><img src="Logos/Logo1.png" alt="Logo"/></a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Buscar..."/>
+      <i class="fa fa-search"></i>
+    </div>
+  </div>
+
+  <nav id="navMenu">
+    <ul>
+       <li><a href="10_Quienessomos_index.html" class="nav-link" id="nav-quienes">¿Quiénes somos?</a></li>
+      <li><a href="10_Refugios_index.html"class="nav-link" id="nav-refugios" >Refugios</a></li>
+      <li><a href="10_Adopciones_index.html" class="nav-link" id="nav-adopciones">Adopciones</a></li>
+    </ul>
+  </nav>
+
+  <div class="right-button">
+    <button>Reportar Maltrato</button>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  // Obtener el nombre del archivo actual
+  const path = window.location.pathname;
+  const currentPage = path.substring(path.lastIndexOf('/') + 1);
+
+  // Mapeo entre archivo y ID del botón del menú
+  const navMenu = {
+    '10_Quienessomos_index.html':'nav-quienes',
+    '10_Refugios_index.html': 'nav-refugios',
+    '10_Adopciones_index.html': 'nav-adopciones'
+  };
+
+  const idActivo = navMenu[currentPage];
+
+  if (idActivo) {
+    const boton = document.getElementById(idActivo);
+    if (boton) {
+      boton.classList.add('activo');
+  
+    }
+  }
+</script>
+</body>
+</html>
+
+<main style= "padding: 40px 20px;" >
+  <div style="flex: 1; min-width: 280px;">
+  <h1 style="font-family: Aspira; font-size: 100px; color: #553A1E; margin-top: -25px; font-weight: 900;">REFUGIOS</h1>
+  <h2 style="font-family: Aspira; font-size: 40px; color: #8D884E; margin-top: -10px; font-weight: 450;">Directorio en la Ciudad de México y Aréa Metropolitana</h2>
+  <!-- SECCIÓN INFORMATIVA Y DE FILTROS -->
+<section style="margin: 60px auto; max-width: 1200px; padding: 0 20px;">
+  <!-- Contenedor horizontal -->
+  <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+    <!-- Imagen izquierda -->
+    <div style="flex: 1 1 45%; margin-top: -30px;">
+      <img class="Imagen-refugios"src="Img_Refugios/Img_1_Refugios.png" alt="Refugios animales" style="width: 150%; border-radius: 0px; object-fit: cover; margin-left: -240px;">
+    </div>
+
+    <!-- Texto derecha -->
+    <div style="flex: 1 1 50%; position: relative; left: 2%; margin-top: -40px;">
+      <h3 style=" opacity: 47%; color: #8B864E; font-size: 29px; font-weight: 80; justify-content: space-between;">Si no ecuentras lo que buscas o 
+necesitas más información</h3>
+      <h4 class="mascotel-title" style=" font-family: Montserrat; color: #D9820F; font-size: 27px; margin: 10px 0; font-weight: 500;">Mascotatel</h4>
+      <p style=" font-family: Montserrat; color: #513B21; font-size: 25px; line-height: 1.6; text-align: justify;">
+       servicio de Medicina a Distancia parte de la Secretaría de Salud de la CDMX que ofrece atención veterinaria remota gratuita, disponible las 24 horas del día, todos los días del año. </p>
+       <p style=" font-family: Montserrat; color: #513B21; font-size: 25px; line-height: 1.8; text-align: justify;
+      font-weight: 700; color: #513B21;"> 51 32 09 00, extensiones 1572 o 1725 </p>
+      <span style=" font-family: Montserrat; color: #513B21; font-size: 25px; line-height: 1.8; text-align: justify;
+      font-weight: 700; color: #513B21;"> Teléfono: </span> <span style=" font-family: Montserrat; color: #513B21; font-size: 25px; line-height: 1.8; text-align: justify;"> 51 32 09 09 ext.3, disponible las 24 horas </span>
+  
+      </p>
+    </div>
+  </div>
+
+  <!-- RECTANGULO GRIS-->
+  <div class="filtro-contenedor" style="background-color: #f0f0f0; margin-left: -280px; padding: 10px 20px; border-radius: 0px; margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; width: 100vw; box-sizing: border-box;">
+
+    <!-- BOTONES, CIUDAD DE MEXICO Y ESTADO DE MEXICO -->
+    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-left: 100px;">
+      <button onclick="filtrarZona('cdmx')" class="btn-filtro">Ciudad de México</button>
+      <button onclick="filtrarZona('edomex')" class="btn-filtro">Estado de México</button>
+    </div>
+
+    <!-- BUSCADOR -->
+    <div style="flex-grow: 1; max-width: 500px;">
+      <input type="text" id="busqueda" placeholder="Buscar por nombre, zona, etc." oninput="buscarRefugio()" style="width: 150%; padding: 15px 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; margin-left: -400px;">
+    </div>
+  </div>
+</section>
+
+<!-- CONTENEDOR DE REFUGIOS -->
+<section style="max-width: 1600px; margin: 50px auto; padding: 0 20px; font-family: Montserrat; margin-top: -45px;">
+  <div id="contenedor-refugios" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    max-height: 1000px;
+    overflow-y: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    background-color: #fafafa;
+    box-sizing: border-box;
+  ">
+  </div>
+</section>
+    <!-- Aquí se insertan los refugios con JavaScript
+    //CODIGO PARA HACER EL COTENEDOR MAS PEQUEÑO//
+
+    <section style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-family: Montserrat;">
+  <div id="contenedor-refugios" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; max-height: 600px; overflow-y: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px; background-color: #fafafa;"> -->
+  </div>
+</section>
+
+<style>
+  .btn-filtro {
+    padding: 13px 20px;
+    border: 1px solid #F8B365;
+    background-color: #F8B365;
+    color: #FFFFFF;
+    border-radius: 13px;
+    font-family: Montserrat;
+    font-size: 23px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 5px;
+    box-shadow: -4px 4px 1px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 15px;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+
+  }
+
+  .filtro-busqueda {
+  flex-grow: 1;
+  max-width: 500px;
+  }
+
+  .btn-filtro:hover {
+    background-color: #DB8F45;
+    color: white;
+  }
+
+  .btn-filtro:hover,
+  .btn-filtro.activo {
+  background-color: #DB8F45;
+  color: white;
+}
+
+  /* Scroll personalizado */
+  #contenedor-refugios::-webkit-scrollbar {
+    width: 8px;
+  }
+  #contenedor-refugios::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 5px;
+
+  }
+
+  @media (max-width: 768px) {
+  .filtro-contenedor {
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 200px;
+  }
+
+  .btn-filtro {
+    justify-content: center;
+    margin-left: 150px;
+  }
+
+  .filtro-busqueda {
+    max-width: 100%;
+    margin-left: 200px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    #contenedor-refugios {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      padding: 20px;
+      max-height: 800px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    #contenedor-refugios {
+      grid-template-columns: 1fr;
+      padding: 15px;
+      max-height: none;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    section {
+      padding: 0 10px;
+    }
+
+    #contenedor-refugios {
+      gap: 20px;
+      padding: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 20px 15px !important;
+  }
+
+  /* Títulos principales */
+  main h1 {
+    font-size: 65px !important;
+    text-align: center;
+    margin-top: 10px !important;
+  }
+
+  main h2 {
+    font-size: 27px !important;
+    text-align: center;
+    margin-top: 5px !important;
+  }
+@media screen and (max-width: 768px) {
+  .mascotel-title {
+    font-size: 45px !important;
+    text-align: center;
+  }
+}
+
+
+  main h3, main h4, main h5 {
+    font-size: 18px !important;
+    text-align: center;
+  }
+
+  /* Texto general */
+  main p, main span, main ul {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: justify;
+  }
+
+  /* Imagen Mascotatel */
+  section > div:first-child img {
+    width: 100% !important;
+    margin-left: 130px !important;
+  }
+
+  /* Texto junto a imagen */
+  section > div:nth-child(2) {
+    margin-top: 20px !important;
+    left: 0 !important;
+    padding: 0 10px;
+  }
+
+  /* Botones filtro y buscador */
+  .filtro-contenedor {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 0 !important;
+    padding: 20px !important;
+    width: 100% !important;
+    gap: 20px;
+  }
+
+  .btn-filtro {
+    font-size: 18px !important;
+    width: 95%;
+    justify-content: center !important;
+    margin-left: -50px !important;
+  }
+
+  .filtro-busqueda,
+  .filtro-contenedor input[type="text"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    font-size: 20px !important;
+  }
+
+  /* Ajustes visuales adicionales */
+  #contenedor-refugios {
+    padding: 15px !important;
+    gap: 20px !important;
+  }
+
+  #contenedor-refugios div {
+    padding: 15px !important;
+  }
+
+  a {
+    word-break: break-word;
+  }
+}
+</style>
+</main>
+<script>
+  const refugios = [
+    {
+      zona: "cdmx",
+      titulo: "Refugio franciscano A.C.",
+      subtitulo: "Ciudad de México",
+      descripcion: "Ofrecen refugio permanente, campañas de esterilización gratuitas en zonas marginadas y promueven el respeto a los derechos de los animales ",
+      dirección: "Carretera México–Toluca Km 17.5, Colonia Lomas de Vista Hermosa, Alcaldía Cuajimalpa de Morelos, CDMX, C.P. 05100",
+      contacto: "Contacto:",
+      telefono1: "525526610507",
+      telefono2: "525552921565",
+      link: "https://www.refugiofranciscano.com.mx"
+    },
+    {
+      zona: "edomex",
+      titulo: "Centro de Control y Bienestar Animal de Toluca",
+      subtitulo: "Estado de México",
+      descripcion: "Es una dependencia del Ayuntamiento de Toluca dedicada a promover la salud y bienestar animal. Ofrece servicios como esterilización, vacunación gratuita, control poblacional y un programa de adopciones, además de atender reportes de agresiones y rescates de perros y gatos.",
+      dirección: "Carretera Toluca–Tlacotepec km 3.8, Toluca, Estado de México",
+      contacto: "Contacto:",
+      telefono1: "722 198 1000",
+      telefono2: "722 198 0900",
+      link: "https://www.facebook.com/CCyBAToluca/?locale=es_LA"
+    },
+    {
+      zona: "cdmx",
+      titulo: "Centro de Transferencia Canina del Metro",
+      subtitulo: "Ciudad de México",
+      descripcion: "Este centro recibe animales rescatados de las instalaciones del Sistema de Transporte Colectivo (STC) Metro, brindándoles atención veterinaria y preparándolos para su adopción.",
+      dirección: "Av. de las Culturas S/N, El Rosario, Azcapotzalco Lun–Dom 10:00-17:00",
+      contacto: "Contacto:",
+      telefono1: "55 56 27 48 61",
+      telefono2: "55 43 21 40 31",
+      link: "https://www.metro.cdmx.gob.mx/centro-de-transferencia-canina"
+    },
+    {
+      zona: "edomex",
+      titulo: "Centro de Bienestar Animal Tultepec",
+      subtitulo: "Estado de México",
+      descripcion: "Es una institución municipal enfocada en el bienestar animal, a través del “Programa de Adopción Tultepec 2024”. Se encarga de rescatar, esterilizar, desparasitar y vacunar a perros y gatos para impulsar su adopción responsable, promoviendo hogares con amor, respeto y responsabilidad.",
+      dirección: "Cerrada Tarasco, colonia La Cañada, Tultepec, Estado de México",
+      contacto: "Contacto:",
+      telefono1: "55 22 21 88 71",
+      telefono2: "55 50 85 52 13 ext.109",
+      link: "https://ecologiatultepec.gob.mx/"
+    },
+
+     {
+      zona: "cdmx",
+      titulo: "Ciudad de los Perros y Gatos",
+      subtitulo: "Ciudad de México",
+      descripcion: "Un espacio remodelado e inaugurado el 9 de julio de 2023, con áreas de rehabilitación, dormitorios, zonas para perros y gatos, hospitalización y recreación.",
+      dirección: "Av. Manuel Ávila Camacho (Anillo Periférico) S/N, Col. Ciénega Grande, Alcaldía Xochimilco, CDMX",
+      contacto: "Contacto:",
+      telefono1: "55 52 08 98 98",
+      telefono2: "55 52 42 51 00",
+      link: "https://www.ssc.cdmx.gob.mx/"
+    },
+
+      {
+
+      zona: "edomex",
+      titulo: "Corazón Canino A.C. (Metepec/Toluca)",
+      subtitulo: "Estado de México",
+      descripcion: "Una Asociación Civil sin fines de lucro dedicada al rescate, cuidado y rehabilitación de perros y gatos. Promueven adopciones responsables y operan también un spa y galería que genera recursos para apoyar a los animales rescatados.",
+      dirección: "Calle Francisco I. Madero 7a, colonia La Magdalena Ocotitlán, Metepec (en algunos casos aparece como Toluca), Estado de México.",
+      contacto: "Contacto:",
+      telefono1: "72 29 37 63 82 (Llamadas)",
+      telefono2: "72 22 53 27 85 (WhatsApp)",
+      link: " https://corazoncanino.org/"
+    },
+
+      {
+
+      zona: "cdmx",
+      titulo: "Agencia de Atención Animal",
+      subtitulo: "Ciudad de México",
+      descripcion: "organismo descentralizado de la Secretaría del Medio Ambiente creado en 2017 para diseñar e implementar políticas públicas a favor del bienestar animal",
+      dirección: "Circuito Correr es Salud s/n esq. Circuito de los Compositores, Bosque de Chapultepec II Sección, Alcaldía Miguel Hidalgo, C.P. 11100, CDMX",
+      contacto: "Contacto:",
+      telefono1: "55 89 99 02 94",
+      telefono2: "55 89 99 02 93 ",
+      link: "https://www.agatan.cdmx.gob.mx/"
+    },
+
+    {
+
+      zona: "edomex",
+      titulo: "Centro de Atención y Protección Animal “HuixquiCAN”",
+      subtitulo: "Estado de México",
+      descripcion: "Es un centro gestionado por el gobierno municipal de Huixquilucan, dedicado al rescate, atención y protección de perros y gatos en situación de calle. Además, promueven la adopción responsable, brindando un lugar seguro para los peluditos mientras encuentran un nuevo hogar.",
+      dirección: "Nicolás Bravo s/n, Huixquilucan de Degollado, Estado de México.",
+      contacto: "Contacto:",
+      telefono1: "72 98 47 82 23",
+      telefono2: "También puedes contactar a través de sus redes sociales oficiales.",
+      link: "https://huixquilucan.gob.mx/huixquican/"
+    },
+
+   
+
+     // Se puede agregar mas refugios
+  ];
+
+  const contenedor = document.getElementById("contenedor-refugios");
+  const inputBusqueda = document.getElementById("busqueda");
+
+  function mostrarRefugios(lista) {
+    contenedor.innerHTML = ""; // Limpia lo anterior
+    if (lista.length === 0) {
+      contenedor.innerHTML = "<p style='grid-column: 1 / -1;'>No se encontraron resultados.</p>";
+      return;
+    }
+
+    lista.forEach(ref => {
+      const div = document.createElement("div");
+      div.style.backgroundColor = "white";
+      div.style.padding = "20px";
+      div.style.borderRadius = "10px";
+      div.style.boxShadow = "0 0 10px rgba(0,0,0,0.05)";
+
+      div.innerHTML = `
+        <h3 style="font-family: Aspira; font-weight: 900; color:#553A1E; font-size: 20px;">${ref.titulo}</h3>
+        <h4 style="font-family: Montserrat; color:#8D884E; font-size: 16px; margin: 8px 0;">${ref.subtitulo}</h4>
+        <p style="font-family: Montserrat; font-size: 15px; opacity: 61%; color:#553A1E; line-height: 1.6;">${ref.descripcion} 
+        </p>
+        <p style=" font-family: Montserrat; font-size: 15px; color:#553A1E; line-height: 1.8;">${ref.dirección} 
+        </p>
+        <h5 style="font-family: Montserrat;color: #553A1E; font-size: 16px; margin: 8px 0; font-weight: 900;">${ref.contacto}</h5>
+        <ul style="font-family: Montserrat; color: #553A1E; font-size: 16px; margin: 8px 0;">${ref.telefono1}
+        </ul>
+        <ul style="font-family: Montserrat; color: #553A1E; font-size: 16px; margin: 8px 0;">${ref.telefono2}
+        </ul>
+        <br><a href="${ref.link}" target="_blank" style=" font-family: Monserrat; color: #C57B0F; text-decoration: underline;">${ref.link}</a>
+      `;
+      contenedor.appendChild(div);
+    });
+  }
+
+  function filtrarZona(zona) {
+    const filtrados = refugios.filter(r => r.zona === zona);
+    mostrarRefugios(filtrados);
+    inputBusqueda.value = ""; // Limpiar búsqueda
+  }
+
+  function buscarRefugio() {
+    const texto = inputBusqueda.value.toLowerCase();
+    const resultados = refugios.filter(r =>
+      r.titulo.toLowerCase().includes(texto) ||
+      r.subtitulo.toLowerCase().includes(texto) ||
+      r.descripcion.toLowerCase().includes(texto)
+    );
+    mostrarRefugios(resultados);
+  }
+
+  // Mostrar todos por defecto al cargar
+  mostrarRefugios(refugios);
+
+  const botones = document.querySelectorAll('.btn-filtro');
+  const barraBusqueda = document.getElementById('busqueda');
+
+  // Activar botón al hacer clic
+  botones.forEach(boton => {
+    boton.addEventListener('click', () => {
+      botones.forEach(b => b.classList.remove('activo')); // Quitar 'activo' a todos
+      boton.classList.add('activo'); // Agregar 'activo' al clicado
+    });
+  });
+
+  // Quitar botones activos al escribir
+  barraBusqueda.addEventListener('input', () => {
+    botones.forEach(b => b.classList.remove('activo'));
+  });
+
+</script>
+
+
+<!-- Copia aquí el footer si tienes -->
+
+<footer class="footer">
+  <div class="footer-contenedor">
+
+    <!-- Columna 1 -->
+    <div class="footer-col">
+      <img src="Logos2/Logo_pie.png" alt="Logo" class="footer-logo">
+      <h1 class="footer-titulo">
+        DAME UNA PATA 
+      </h1>
+      <h2 class="footer-subtitulo">
+       REFUGIO  
+      </h2>
+      <p class="footer-descripcion">
+        Refgio de perros y gatos, encargados de 
+        poder ayudar a cualquier peludito que 
+        necesite ayuda, y pueda encontrar un 
+        hogar, en la CDMX  y area metropolitana. 
+      </p>
+      <img src="Logos2/Redes_pie.png" alt="Redes Sociales" class="footer-redes">
+      <img src="Logos2/Imagen_pie.png" alt="Imagen Inferior" class="footer-imagen-extra">
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CONOCENOS</h4>
+      <ul class="footer-links">
+        <li><a href="10_Quienessomos_index.html">¿Quiénes somos? </a></li>
+        <li><a href="10_Adopciones_index.html">Adopciones</a></li>
+        <li><a href="#">Donaciones</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CENTRO DE AYUDA</h4>
+      <ul class="footer-links">
+        <li><a href="#">Reporta un matrato</a></li>
+        <li><a href="10_Refugios_index.html">Refugios</a></li>
+        <li><a href="#">Blogs</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CONTACTO</h4>
+      <ul class="footer-info">
+        <li> Informes </li>
+        <li>@dameunapata.com.mx</li>
+        <li>+52 55 34540922</li>
+        <li>CDMX, México,Av. Morelos 45</li>
+        <li>Lun-Vie 9am - 6pm</li>
+      </ul>
+      <img src="Logos2/Tarjetas_pie.png" alt="Pagos" class="footer-tarjetas">
+    </div>
+
+
+  </div>
+</footer>
+
+
+</body>
+</html>
+
+<!-- 
+  Autor: Daniela Cruz 
+  Proyecto realizado para el diplomado en desarrollo web.
+  Prohibida su distribución sin autorización.
+-->

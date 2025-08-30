@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Quiénes somos?</title>
+  <link rel="stylesheet" href="10_index.css"> <!-- CSS archivo externo -->
+</head>
+<body>
+
+<!-- HEADER Y LOGO MENU-->
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navbar Responsive Mejorada</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Montserrat; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #276CCD;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .left-group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+    }
+
+    .logo img { height: 40px; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .hamburger .bar {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+    }
+
+    .search-box {
+      position: relative;
+      max-width: 300px;
+      flex: 1;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 8px 35px 8px 12px;
+      border-radius: 20px;
+      border: none;
+    }
+    .search-box .fa-search {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+      pointer-events: none;
+    }
+
+    nav {
+      display: flex;
+      margin-left: 40px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav li {
+      position: relative;
+      padding-right: 20px;
+    }
+    nav li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 20px;
+      background-color: #FFF;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #F7D899;
+      background-color: transparent;
+    }
+      nav a.activo {
+      color: #F7D899;
+      background-color: transparent;
+      }
+  
+
+    .right-button {
+      margin-left: 20px;
+    }
+    .right-button button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 13px;
+      background-color: #FF9B55;
+      color: #0F357E;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 5px 3px rgba(0,0,0,0.2);
+    }
+    .right-button button:hover {
+      background-color: #F8B365;
+    }
+
+    @media (max-width: 768px) {
+      
+
+      .hamburger { display: flex; }
+
+      nav {
+        position: absolute;
+        top: 60px;
+        left: 10px; 
+        background: #333;
+        display: none;
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      nav.open { display: flex; }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+      }
+      nav li {
+        padding-right: 0;
+      }
+      nav li:not(:last-child)::after { display: none; }
+
+      .right-button { display: none; }
+    }
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="left-group">
+    <div class="logo">
+      <a href="10_index.html"><img src="Logos/Logo1.png" alt="Logo"/></a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Buscar..."/>
+      <i class="fa fa-search"></i>
+    </div>
+  </div>
+
+  <nav id="navMenu">
+    <ul>
+       <li><a href="10_Quienessomos_index.html" class="nav-link" id="nav-quienes">¿Quiénes somos?</a></li>
+      <li><a href="10_Refugios_index.html"class="nav-link" id="nav-refugios" >Refugios</a></li>
+      <li><a href="10_Adopciones_index.html" class="nav-link" id="nav-adopciones">Adopciones</a></li>
+    </ul>
+  </nav>
+
+  <div class="right-button">
+    <button>Reportar Maltrato</button>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  // Obtener el nombre del archivo actual
+  const path = window.location.pathname;
+  const currentPage = path.substring(path.lastIndexOf('/') + 1);
+
+  // Mapeo entre archivo y ID del botón del menú
+  const navMenu = {
+    '10_Quienessomos_index.html':'nav-quienes',
+    '10_Refugios_index.html': 'nav-refugios',
+    '10_Adopciones_index.html': 'nav-adopciones'
+  };
+
+  const idActivo = navMenu[currentPage];
+
+  if (idActivo) {
+    const boton = document.getElementById(idActivo);
+    if (boton) {
+      boton.classList.add('activo');
+  
+    }
+  }
+</script>
+</body>
+</html>
+
+
+<main style="padding: 40px; font-family: Montserrat;">
+
+  <!-- SECCIÓN SUPERIOR: título + imagen -->
+  <section style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 60px; gap: 30px;">
+
+    <!-- Texto a la izquierda -->
+    <div style="flex: 1; min-width: 280px;">
+      <h1 style="font-family: Aspira; font-size: 100px; color: #553A1E; margin-top: -25px; font-weight: 900;">¿QUIÉNES</h1>
+      <h2 style="font-family: Aspira; font-size: 67px; color: #8D884E; margin-top: 10px; font-weight: 450;">SOMOS?</h2>
+      <p style="font-family: Montserrat; margin-top: 20px; font-size: 30px; color: #513B21; max-width: 800px; text-align: justify; line-height: 1.9; ">
+        Somos un refugio dedicado al rescate, rehabilitación y adopción de perros y gatos en la CDMX y área metropolitana. También apoyamos a la comunidad canalizando reportes de maltrato o abandono a otros refugios y organizaciones confiables, trabajando juntos por el bienestar animal.
+      </p>
+    </div>
+
+    <!-- Imagen a la derecha -->
+    <div style="flex: 1; min-width: 280px; text-align: center; margin-top: 5px;">
+      <img src="Img_QuienesSomos/Imagen_Perroygato.avif" alt="Refugio de perros y gatos" style="max-width: 100%; height: auto; border-radius: 12px;">
+    </div>
+
+  </section>
+
+  <!-- SECCIÓN INFERIOR: tres columnas -->
+  <section style="display: flex; flex-wrap: wrap; gap: 30px;">
+
+    <!-- COLUMNA 1: DESCRIPCIÓN 1 -->
+    <div style="flex: 1; min-width: 250px; text-align: center;">
+      <img src="Img_QuienesSomos/Icono_1.png" alt="Misión" style="width: 27%; border-radius: 10px;">
+      <h1 class="column-title" style="font-family: Aspira; font-size: 56px; margin-top: 25px; color: #553A1E; font-weight: 900;"> NUESTRA MISIÓN </h1>
+      <p class="column-text" style=" font-family: Montserrat; margin-top: 30px; font-size: 33px; color: #513B21; text-align: justify; line-height: 1.9; font-weight: 90; ">
+        Nuestra misión es generar confianza entre los usuarios y nuestra plataforma web mediante información veraz y transparente que motive la participación en el bienestar animal. Promovemos la adopción responsable de perros y gatos, fomentando sus cuidados y combatiendo el abandono en la Ciudad de México y el área metropolitana. Además, ofrecemos un directorio accesible que conecta a los usuarios con refugios en CDMX y el Estado de México, facilitando el apoyo a los animales de forma más cercana, sencilla y efectiva.
+      </p>
+    </div>
+
+    <!-- COLUMNA 2: IMÁGENES VERTICAL -->
+    <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 100px; margin-top: -100px;">
+      <img src="Img_QuienesSomos/Imagen_1_Quienes.png" alt="Imagen 1" style="width: 70%; border-radius: 10px;">
+      <img src="Img_QuienesSomos/Imagen_2_Quienes.png" alt="Imagen 2" style="width: 70%; border-radius: 10px;">
+      <img src="Img_QuienesSomos/Imagen_3_Quienes.png" alt="Imagen 3" style="width: 70%; border-radius: 10px;">
+      <img src="Img_QuienesSomos/Imagen_4_Quienes.png" alt="Imagen 4" style="width: 70%; border-radius: 10px;">
+    </div>
+
+    <!-- COLUMNA 3: DESCRIPCIÓN 2 -->
+    <div style="flex: 1; min-width: 250px; text-align: center; margin-top: -16px;">
+      <img src="Img_QuienesSomos/Icono_2.png" alt="Visión" style=" width: 20%; border-radius: 10px; ">
+       <h1 class="column-title" style="font-family: Aspira; font-size: 56px; margin-top: 25px; color: #553A1E; font-weight: 900;"> NUESTRA VISIÓN </h1>
+      <p class="column-text" style=" font-family: Montserrat; margin-top: 30px; font-size: 33px; color: #513B21; text-align: justify; line-height: 1.9; font-weight: 90;">
+        Aspiramos a ser un refugio ejemplar que brinde un espacio seguro y libre de maltrato para perros y gatos rescatados, inspirando confianza y compromiso en quienes nos visitan. Nuestro objetivo es ser un puente entre animales vulnerables y hogares responsables, promoviendo la adopción consciente y construyendo una comunidad que valore el respeto, la compasión y el bienestar animal, para que cada adopción represente una segunda oportunidad digna y amorosa.
+      </p>
+    </div>
+
+  </section>
+</main>
+
+
+<!--FOOTER CODIGO-->
+
+<footer class="footer">
+  <div class="footer-contenedor">
+
+    <!-- Columna 1 -->
+    <div class="footer-col">
+      <img src="Logos2/Logo_pie.png" alt="Logo" class="footer-logo">
+      <h1 class="footer-titulo">
+        DAME UNA PATA 
+      </h1>
+      <h2 class="footer-subtitulo">
+       REFUGIO  
+      </h2>
+      <p class="footer-descripcion">
+        Refgio de perros y gatos, encargados de 
+        poder ayudar a cualquier peludito que 
+        necesite ayuda, y pueda encontrar un 
+        hogar, en la CDMX  y area metropolitana. 
+      </p>
+      <img src="Logos2/Redes_pie.png" alt="Redes Sociales" class="footer-redes">
+      <img src="Logos2/Imagen_pie.png" alt="Imagen Inferior" class="footer-imagen-extra">
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CONOCENOS</h4>
+      <ul class="footer-links">
+        <li><a href="10_Quienessomos_index.html">¿Quiénes somos? </a></li>
+        <li><a href="10_Adopciones_index.html">Adopciones</a></li>
+        <li><a href="#">Donaciones</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CENTRO DE AYUDA</h4>
+      <ul class="footer-links">
+        <li><a href="#">Reporta un matrato</a></li>
+        <li><a href="10_Refugios_index.html">Refugios</a></li>
+        <li><a href="#">Blogs</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">CONTACTO</h4>
+      <ul class="footer-info">
+        <li> Informes </li>
+        <li>@dameunapata.com.mx</li>
+        <li>+52 55 34540922</li>
+        <li>CDMX, México,Av. Morelos 45</li>
+        <li>Lun-Vie 9am - 6pm</li>
+      </ul>
+      <img src="Logos2/Tarjetas_pie.png" alt="Pagos" class="footer-tarjetas">
+    </div>
+
+
+  </div>
+</footer>
+
+
+</body>
+</html>
+
+<!-- 
+  Autor: Daniela Cruz 
+  Proyecto realizado para el diplomado en desarrollo web.
+  Prohibida su distribución sin autorización.
+-->
+
